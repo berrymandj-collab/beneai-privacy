@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — BeneAI</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 40px 20px 80px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a6fdb;
+      margin-bottom: 4px;
+    }
+    .tagline {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111;
+    }
+    .updated {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      margin: 36px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e8e8e8;
+    }
+    p { margin-bottom: 14px; }
+    ul {
+      margin: 0 0 14px 24px;
+    }
+    li { margin-bottom: 6px; }
+    .highlight {
+      background: #f0f6ff;
+      border-left: 4px solid #1a6fdb;
+      padding: 14px 18px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .highlight p { margin: 0; }
+    a { color: #1a6fdb; }
+    .contact-box {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 12px;
+    }
+    .contact-box p { margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">BeneAI</div>
+    <div class="tagline">AI your benefits.</div>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 3, 2026</p>
+
+    <div class="highlight">
+      <p><strong>The short version:</strong> Your insurance data stays on your device and in your own Google Drive. BeneAI never stores your health information on our servers.</p>
+    </div>
+
+    <h2>1. What BeneAI Does</h2>
+    <p>BeneAI is an insurance analysis and education tool that helps households with multiple health insurance plans understand their combined coverage, track claims, and identify potential errors or savings. It is not a licensed insurance advisor and does not replace your insurance carrier, HR department, or a licensed benefits professional.</p>
+
+    <h2>2. Information We Collect</h2>
+    <p>BeneAI collects only the information you voluntarily enter or import:</p>
+    <ul>
+      <li>Member names, dates of birth</li>
+      <li>Insurance plan details (carrier, deductible, out-of-pocket maximum, copays, coverage type)</li>
+      <li>Explanation of Benefits (EOB) documents and provider statements you import</li>
+      <li>Claims data extracted from those documents</li>
+      <li>Notes you add to claims or action items</li>
+    </ul>
+    <p><strong>All of this information is stored locally on your device</strong> in an encrypted SQLite database. BeneAI does not have a user account system and does not transmit this information to our servers.</p>
+
+    <h2>3. Information That Leaves Your Device</h2>
+    <p>Certain features send information outside your device. Here is exactly what leaves, where it goes, and why:</p>
+
+    <p><strong>Anonymized Analysis (default):</strong> When you run an analysis using the anonymized tier, BeneAI strips all 18 HIPAA-defined identifiers from your data before it leaves your phone. Names become "Member 1/Member 2," carrier names become "Primary Plan/Secondary Plan," and claim numbers are replaced with generic references. This de-identified summary is sent to Anthropic's API via Cloudflare Workers to generate analysis results. No personally identifiable information leaves your device in this mode.</p>
+
+    <p><strong>Full Analysis — Your Own API Key (optional):</strong> If you choose to use Full Analysis with your own Anthropic or Google Gemini API key, your documents are sent directly from your device to Anthropic or Google using your own credentials. BeneAI never receives or stores those documents. You are acting under your own API account; your provider's privacy policy governs that data.</p>
+
+    <p><strong>Ask BeneAI:</strong> Questions you ask are sent along with an anonymized summary of your household coverage (no names, carrier names, or claim numbers) to Anthropic's API via Cloudflare Workers to generate answers.</p>
+
+    <p><strong>Scan SBC Document:</strong> When you scan a Summary of Benefits and Coverage document, the PDF is sent to Cloudflare Workers and processed by Anthropic's API to extract plan details. Only the document you explicitly select is sent.</p>
+
+    <h2>4. Google Drive Sync</h2>
+    <p>If you choose to connect Google Drive, BeneAI stores your coverage data — including members, plans, claims, analyses, and imported documents — in a folder called <strong>/BeneAI/</strong> in your own Google Drive account.</p>
+    <ul>
+      <li>BeneAI never stores this data on our servers. It goes directly from your phone to your Google Drive.</li>
+      <li>You own and control this folder. You can view, download, or delete it directly from Google Drive at any time.</li>
+      <li>BeneAI uses the <code>drive.file</code> permission scope, which means it can only access files it created. It cannot see or access any other files in your Google Drive.</li>
+      <li>Google's privacy policy governs data stored in your Google Drive account.</li>
+    </ul>
+    <p>Connecting Google Drive is optional. The app is fully functional without it.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>BeneAI uses the following third-party services:</p>
+    <ul>
+      <li><strong>Cloudflare Workers</strong> — routes anonymized API requests. Anonymized data passes through Cloudflare's infrastructure. No personally identifiable health information is transmitted through Cloudflare. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Privacy Policy</a>.</li>
+      <li><strong>Anthropic API</strong> — processes anonymized analysis and Ask BeneAI requests. De-identified summaries may be processed by Anthropic. For Full Analysis with your own key, you interact with Anthropic directly under your own account. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Privacy Policy</a>.</li>
+      <li><strong>Google</strong> — provides Google Sign-In authentication and Google Drive storage when you enable Drive sync. See <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</li>
+    </ul>
+    <p>BeneAI does not sell your data to any third party. These services are used solely to deliver app functionality.</p>
+
+    <h2>6. Data Retention</h2>
+    <p>Your data is stored on your device until you delete it. Analysis results are automatically deleted from your device after April 16 of the following calendar year (for example, 2025 analyses are deleted after April 16, 2026). You will be notified in February and March before deletion occurs.</p>
+    <p>You can delete all your data at any time: <strong>Settings → Clear All Data</strong>. If you have Google Drive sync enabled, deleting data in the app does not automatically delete files from your Google Drive — you can manage those directly in Google Drive.</p>
+
+    <h2>7. Your Rights</h2>
+    <p>Because your data is stored on your own device and in your own Google Drive, you have complete control over it at all times. You may:</p>
+    <ul>
+      <li>Delete all app data via Settings → Clear All Data</li>
+      <li>Delete your Google Drive data directly from Google Drive</li>
+      <li>Disconnect Google Drive at any time via Settings → Disconnect Drive</li>
+      <li>Revoke BeneAI's Google Drive access at any time via your Google Account settings</li>
+    </ul>
+    <p><strong>California residents (CCPA):</strong> BeneAI does not sell personal information. You have the right to know what information we process, to delete your information, and to opt out of sale (no sale occurs). Contact us at the address below to exercise any rights.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>BeneAI is not directed to children under the age of 13 and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information through the app, please contact us and we will take steps to delete it.</p>
+
+    <h2>9. Security</h2>
+    <p>Data stored on your device is protected by your device's built-in security (PIN, biometric lock, device encryption). BeneAI adds an additional app-level PIN and optional biometric lock. We do not transmit or store your PIN or biometric data.</p>
+
+    <h2>10. Disclaimer</h2>
+    <p>BeneAI is an analysis and education tool. It is not insurance advice and does not replace a licensed benefits advisor, your insurance carrier, or your employer's HR department. Always consult your plan documents and a qualified professional for coverage decisions.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>12. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or your data, please contact us:</p>
+    <div class="contact-box">
+      <p><strong>BeneAI</strong><br />
+      Email: <a href="mailto:berrymandj@aol.com">berrymandj@aol.com</a></p>
+    </div>
+
+  </div>
+</body>
+</html>
